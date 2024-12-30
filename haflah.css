@@ -1,0 +1,183 @@
+body {
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: 540px;
+    width: 100%;
+    position: relative;
+}
+.section {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 540px;
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1.5s ease, transform 0.5s ease;
+    background-image: url(./bacgk.png);
+    object-fit: cover;
+    object-position: center;
+}
+.section::before,
+.section::after,
+.section > *::before,
+.section > *::after {
+    content: "";
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* .section::before {
+    animation: floatTopLeft 4s ease-in-out infinite;
+}
+
+.section::after {
+    animation: floatTopRight 5s ease-in-out infinite; 
+}
+
+.section > *::before {
+    animation: floatBottomLeft 6s ease-in-out infinite;
+}
+
+.section > *::after {
+    animation: floatBottomRight 4.5s ease-in-out infinite;
+} */
+
+@keyframes floatTopLeft {
+    0% { transform: translate(-8px, -12px) rotate(0deg); }
+    33% { transform: translate(0px, 0px) rotate(3deg); }
+    66% { transform: translate(-13px, -4px) rotate(-2deg); }
+    100% { transform: translate(-8px, -12px) rotate(0deg); }
+}
+
+@keyframes floatTopRight {
+    0% { transform: translate(8px, -12px) rotate(0deg); }
+    33% { transform: translate(-2px, 3px) rotate(-4deg); }
+    66% { transform: translate(16px, -7px) rotate(2deg); }
+    100% { transform: translate(8px, -12px) rotate(0deg); }
+}
+@keyframes floatBottomLeft {
+    0% { transform: translate(-4px, 8px) rotate(0deg); }
+    33% { transform: translate(4px, 4px) rotate(2deg); }
+    66% { transform: translate(-6px, 8px) rotate(-2deg); }
+    100% { transform: translate(-4px, 8px) rotate(0deg); }
+}
+
+@keyframes floatBottomRight {
+    0% { transform: translate(4px, 8px) rotate(0deg); }
+    33% { transform: translate(0px, 4px) rotate(-2deg); }
+    66% { transform: translate(0px, 6px) rotate(2deg); }
+    100% { transform: translate(4px, 8px) rotate(0deg); }
+}
+
+.section::before {
+    top: 0;
+    left: 0;
+    background-image: url(./atas\ kiri.png);
+    background-position: top left;
+    width: 130px;
+    height: 130px;
+}
+
+.section::after {
+    top: 0;
+    right: 0;
+    background-image: url(./atas\ kanan.png);
+    background-position: top right;
+    width: 130px;
+    height: 130px;
+}
+
+.section > *::before {
+    bottom: 80px; /* Disesuaikan dengan tinggi nav-indicator */
+    left: 0;
+    background-image: url(./bawah\ kiri.png);
+    background-position: bottom left;
+    width: 250px;
+    height: 250px;
+}
+
+.section > *::after {
+    bottom: 80px; /* Disesuaikan dengan tinggi nav-indicator */
+    right: 0;
+    background-image: url(./bawah\ kanan.png);
+    background-position: bottom right;
+    width: 250px;
+    height: 250px;
+}
+.section.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+.nav-indicator {
+    position:fixed;
+    bottom: 0;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    background: linear-gradient(180deg, rgba(28, 28, 28, 0.9), rgba(20, 20, 20, 0.95));
+    padding: 12px;
+    width: 100%;
+    margin: auto;
+    max-width: 540px;
+    height: 80px;
+    overflow-x: hidden;
+    border-top: 2px solid rgba(255, 215, 0, 0.15);
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.3),
+                0 -2px 10px rgba(255, 215, 0, 0.1);
+}
+
+.nav-indicator .btn {
+    margin: 5px 5px;
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-indicator .btn:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #FFD700;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+}
+:root {
+    --primary: #f5ad11;
+    --primary-color-light: rgba(255, 215, 0, 0.15);
+    --primary-color-lighter: rgba(255, 215, 0, 0.08);
+    --primary-color-border: rgba(255, 215, 0, 0.4);
+    --accent-color: #f5ad11;
+    --dark-bg: rgba(28, 28, 28, 0.9);
+    --darker-bg: rgba(20, 20, 20, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --text-shadow: rgba(0, 0, 0, 0.2);
+    --white: #fff;
+}
+
+.coverundangan .utama {
+    font-family: "Oleo Script", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.coverundangan .kedua {
+    font-family: "Redressed", serif;
+    font-size: 1.5rem;
+    color: #f5ad11;
+}
+.coverundangan .ketiga {
+    font-family: "IBM Plex Serif", serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
